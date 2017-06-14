@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Windstorm details');
+    expect(compiled.querySelector('h2').textContent).toContain('Hero List');
   }));
 
 });
