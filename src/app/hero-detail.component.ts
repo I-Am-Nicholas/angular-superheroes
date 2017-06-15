@@ -7,12 +7,17 @@ import { Hero } from './hero';
   tag in this component's parent component*/
   selector: 'hero-detail',
   template: `
-    <div id="details" *ngIf="hero">
-      <h2>{{hero.name}} details</h2>
-      <div><label>id: </label>{{hero.id}}</div>
+  <!--a.k.a 'if hero is defined(selected), then execute the following
+   lines and print them between the main component template's
+   'hero-detail' tags'-->
+    <div id="details" *ngIf="hero2">
+      <h2>{{hero2.name}} details</h2>
+      <div><label>id: </label>{{hero2.id}}</div>
       <div>
         <label>name: </label>
-        <input [(ngModel)]="hero.name" placeholder="name">
+        <!--[(ngModel)] Creates two-way binding between the <input> form (the
+        textbox)element and the hero.name property-->
+        <input [(ngModel)]="hero2.name" placeholder="name">
       </div>
     </div>
   `
@@ -23,5 +28,8 @@ import { Hero } from './hero';
  it elsewhere. You make this component class available elsewhere by
 exporting it.*/
 export class HeroDetailComponent {
-  @Input()hero: Hero;
+  /*From a binding perspective hero would be untouchable (private)
+  if not for the @Input decorator. So here, 'hero', an instance of the
+  Hero class, can be bound*/
+  @Input()hero2: Hero;
 }
