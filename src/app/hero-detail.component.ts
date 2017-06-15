@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { Hero } from './hero';
 
-//@Component is known as a decorator
+//@Component is known as a decorator. Decorators always come with ().
 @Component({
   /*selector is a CSS selector. hero-detail refers to the <hero-detail>
   tag in this component's parent component*/
