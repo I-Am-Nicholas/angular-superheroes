@@ -7,13 +7,12 @@ import { HeroDetailComponent } from './hero-detail.component';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule // <-- import the FormsModule before binding with [(ngModel)]
+    FormsModule // import the FormsModule before binding with [(ngModel)]
   ],
-  declarations: [
+  declarations: [ //You must declare every component in an NgModule class.
     AppComponent,
     HeroDetailComponent
   ],
-  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

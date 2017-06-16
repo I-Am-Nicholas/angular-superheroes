@@ -4,7 +4,7 @@ import { Hero } from './hero';
 //@Component is known as a decorator. Decorators always come with ().
 @Component({
   /*selector is a CSS selector. hero-detail refers to the <hero-detail>
-  tag in this component's parent component*/
+  tag in this component's parent component...app.component.ts*/
   selector: 'hero-detail',
   template: `
     <div id="details" *ngIf="hero2">
@@ -25,7 +25,10 @@ import { Hero } from './hero';
 exporting it.*/
 export class HeroDetailComponent {
   /*From a binding perspective hero would be untouchable (private)
-  if not for the @Input decorator. So here, 'hero', an instance of the
-  Hero class, can be bound*/
+  if not for the @Input decorator. So here, 'hero2', (a property of
+  HeroDetailComponent and an instance of the Hero class) can be bound.
+  It is necessary to declare that 'hero2' is an Input
+  property for anything to bind to it, done here by the preceeding '@Input'
+  In this case AppComponent's selectedHero property can bind to it.*/
   @Input()hero2: Hero;
 }

@@ -17,17 +17,20 @@ import { HeroService } from './hero.service';
         <span class="badge">{{hero1.id}}: </span>{{hero1.name}}
       </li>
     </ul>
-    <!--[hero] is a property of HeroDetailComponent-->
+    <!--selectedHero binds to hero2. This is where the value of the selected item is transferred to [hero2].
+    hero2 is a property of HeroDetailComponent.
+    and we know that hero2 is the 'receiver' of the two due to the square brackets.-->
     <hero-detail [hero2]="selectedHero"></hero-detail>
     `,
-    //To teach the injector how to make a HeroService
+    //To teach the injector how to make a HeroService instance
+    //(What's this doing different to the constructor below?)
     providers: [HeroService]
 })
 
 export class AppComponent implements OnInit{
 
   title = 'Superhero DB';
-  heroes: Hero[];//uninitialized heroes property
+  heroes: Hero[];//uninitialized heroes property (an instance of Hero...but as an array?)
   /*A public property, xposing the heroes list for
   binding to a template element. So 'heroes' now gives accees to the HEROES
   constant, (which was previously private)*/
@@ -42,12 +45,21 @@ export class AppComponent implements OnInit{
    injection site.
 
    Now Angular knows to supply an instance of the HeroService when it
-    creates an AppComponent.*/
-  constructor(private heroService: HeroService) { }
+    creates an AppComponent.
+    That instance will set up the return of the list of heroes from mock-heroes.
+    The constructor is only for simple initializations, like wiring constructor
+    parameters to properties.*/
+  constructor(private heroService: HeroService) { console.log(heroService.getHeroes()) }
 
-  getHeroes(): void {
+  getTheHeroes(): void {
+    /*the following arrow function is an implementation of ES2015
+    */
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    /* above line == this.heroService.getHeroes().then (function(heroes){
+      this.heroes = heroes;
+    });*/
   }
+
 
   /*The onSelect method sets the selectedHero property to whatever the user selected.
   'hero1' is the property, the 'Hero' class is the type. So 'hero1' expects to get a name
@@ -55,9 +67,15 @@ export class AppComponent implements OnInit{
   onSelect(hero1: Hero): void {
     this.selectedHero = hero1;
   }
-  ngOnInit(): void {
-  this.getHeroes();
-}
 
+  /*ngOnInit is a Lifecycle hook. Angular offers a handful of hooks (interfaces)
+  which allow you to view a component at a certain stage in its existence. The names
+  of these hooks are self-explanatory. ngOnDestroy, ngOnChange, etc.
+
+  In this instance, on initialization of the component, Angular is asked to call
+   the getHeroes function*/
+  ngOnInit(): void {
+    this.getTheHeroes();
+  }
 
 }
