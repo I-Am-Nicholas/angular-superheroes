@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
@@ -12,7 +12,7 @@ import { HeroService } from './hero.service';
     <h2>Hero List</h2>
 
     <ul class="heroes">
-      <li *ngFor="let hero1 of heroed" (click)="onSelect(hero1)"
+      <li *ngFor="let hero1 of heroes" (click)="onSelect(hero1)"
       [class.selected]="hero1 === selectedHero">
         <span class="badge">{{hero1.id}}: </span>{{hero1.name}}
       </li>
@@ -24,7 +24,7 @@ import { HeroService } from './hero.service';
     providers: [HeroService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'Superhero DB';
   heroes: Hero[];//uninitialized heroes property
@@ -46,7 +46,7 @@ export class AppComponent {
   constructor(private heroService: HeroService) { }
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
   /*The onSelect method sets the selectedHero property to whatever the user selected.
@@ -55,5 +55,9 @@ export class AppComponent {
   onSelect(hero1: Hero): void {
     this.selectedHero = hero1;
   }
+  ngOnInit(): void {
+  this.getHeroes();
+}
+
 
 }

@@ -7,9 +7,6 @@ import { Hero } from './hero';
   tag in this component's parent component*/
   selector: 'hero-detail',
   template: `
-  <!--a.k.a 'if hero is defined(selected), then execute the following
-   lines and print them between the main component template's
-   'hero-detail' tags'-->
     <div id="details" *ngIf="hero2">
       <h2>{{hero2.name}} details</h2>
       <div><label>id: </label>{{hero2.id}}</div>
@@ -22,7 +19,6 @@ import { Hero } from './hero';
     </div>
   `
 })
-
 
 /*Always export the component class because you'll always import
  it elsewhere. You make this component class available elsewhere by
