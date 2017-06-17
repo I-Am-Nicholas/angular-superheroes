@@ -1,4 +1,4 @@
-  <h2>Hero List</h2>
+  <h2>The Power List</h2>
 
   <ul class="heroes">
     <li *ngFor="let hero1 of heroes" (click)="onSelect(hero1)"
@@ -8,7 +8,7 @@
   </ul>
   <div *ngIf="selectedHero">
 <h2>
-  {{selectedHero.name | uppercase}} is my hero
+  {{selectedHero.name | uppercase}}
 </h2>
 <button (click)="gotoDetail()">View Details</button>
 </div>
