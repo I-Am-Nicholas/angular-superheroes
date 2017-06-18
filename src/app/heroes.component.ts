@@ -36,7 +36,8 @@ export class HeroesComponent implements OnInit{
   constructor(
     private router: Router,
     private heroService: HeroService
-  ) { console.log(heroService.getHeroes()) }
+  ) { }
+// ) { console.log(heroService.getHeroes()) }
 
   getTheHeroes(): void {
     /*the following arrow function is an implementation of ES2015

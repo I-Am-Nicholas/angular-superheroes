@@ -15,5 +15,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Superhero DB';
+  title = 'META-HUMAN DATABASE';
 }

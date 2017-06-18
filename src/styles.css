@@ -12,7 +12,7 @@ body {
   margin: 2em;
 }
 body, input[text], button {
-  color: #888;
+  background-color: #f1f0ee;
   font-family: Cambria, Georgia;
 }
 
