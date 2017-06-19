@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer  } from '@angular/platform-browser';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
@@ -11,15 +12,16 @@ import { HeroService } from './hero.service';
 
 export class DashboardComponent implements OnInit {
 
-  heroes: Hero[] = [];
+heroes: Hero[] = [];
 //constructing a new instance of HeroService
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private sanitizer: DomSanitizer) { }
 /*On initialization, take the instance created above and call
 its getHeroes method. On resolution of the promise, return
 elements 1 thru 5 of the array.*/
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.heroService.getHeroes()
       .then(heroes => this.heroes = heroes.slice(1, 5));
+      // return this.sanitizer.bypassSecurityTrustUrl('assets/shield.png');
   }
 
 }

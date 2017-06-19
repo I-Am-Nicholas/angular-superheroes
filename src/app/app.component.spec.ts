@@ -1,33 +1,45 @@
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing'; //Stack Overflow
+import { DebugElement }    from '@angular/core';
+import { By }              from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+
+    let comp:    AppComponent;
+    let fixture: ComponentFixture<AppComponent>;
+    let dbug:      DebugElement; //access to the DOM
+    let elem:      HTMLElement;
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [ RouterTestingModule ],//Stack Overflow
+        declarations: [ AppComponent ] // always declare the test component
+      });
+
+      fixture = TestBed.createComponent(AppComponent);
+
+      comp = fixture.componentInstance; // AppComponent test instance
+
+      // query for the title <h1> by CSS element selector
+      dbug = fixture.debugElement.query(By.css('nav'));
+      elem = dbug.nativeElement;
+    });
+
 
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(AppComponent).toBeTruthy();
   }));
 
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Superhero DB');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should render text of nav tag', async(() => {
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Hero List');
+    expect(elem.textContent).toContain('Dashboard');
+  }));
+
+  it('should render text of nav tag', async(() => {
+    fixture.detectChanges();
+    expect(elem.textContent).toContain('Heroes');
   }));
 
 });
