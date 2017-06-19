@@ -38,6 +38,13 @@ describe('AppComponent', () => {
     expect(hDbug.nativeElement.textContent).toEqual(comp.title);
   }));
 
+  it(`should show altered title`, async(() => {
+    comp.title = "New Title";
+    fixture.detectChanges();
+    var hDbug = fixture.debugElement.query(By.css('h1'));
+    expect(hDbug.nativeElement.textContent).toEqual(comp.title);
+  }));
+
   it('should render text of nav tag', async(() => {
     fixture.detectChanges();
     expect(elem.textContent).toContain('Dashboard');
