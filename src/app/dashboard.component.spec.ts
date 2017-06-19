@@ -10,7 +10,7 @@ describe('DashboardComponent', () => {
 
     let comp:    DashboardComponent;
     let fixture: ComponentFixture<DashboardComponent>;
-    let dbug:      DebugElement;
+    let dbug, buttons:      DebugElement;
     let elem:      HTMLElement;
 
     beforeEach(() => {
@@ -25,12 +25,15 @@ describe('DashboardComponent', () => {
       comp = fixture.componentInstance;
 
       dbug = fixture.debugElement.query(By.css('h3'));
+      buttons = fixture.debugElement.query(By.css('nav'));
       elem = dbug.nativeElement;
     });
 
     it('shows the correct title', () => {
       expect(elem.textContent).toContain('MOST ACTIVE');
     });
+
+  
 
 
 

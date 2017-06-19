@@ -4,8 +4,6 @@ import { DomSanitizer  } from '@angular/platform-browser';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
-
-
 @Injectable()
 export class HeroService {
   constructor(private sanitizer: DomSanitizer) { }

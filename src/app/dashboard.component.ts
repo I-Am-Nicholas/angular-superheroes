@@ -20,8 +20,8 @@ its getHeroes method. On resolution of the promise, return
 elements 1 thru 5 of the array.*/
   ngOnInit(): any {
     this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
-      // return this.sanitizer.bypassSecurityTrustUrl('assets/shield.png');
+    .then(heroes => this.heroes = heroes.slice(1, 5));
+    // return this.sanitizer.bypassSecurityTrustUrl('assets/shield.png');
   }
 
 }
