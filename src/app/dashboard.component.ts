@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import { SafeComponent } from './safe.component'
 
 @Component({
   selector: 'my-dashboard',
