@@ -6,6 +6,6 @@
 
 ## Overview
 
-- This is a tutorial. I have followed it to build my understanding of Angular, and to lock-in the basics of my app.
+- This is a tutorial. I have followed it thus far to build my understanding of Angular, and to lock-in the basics of my app.
 
-- Having to follow the instructions step-by-step meant that I wasn't able to use TDD, as the tutorial did not include testing. Now that I have completed the tutorial I will start my app from scratch while learning TDD with Angular.
+- Having to follow the instructions step-by-step meant that I wasn't able to use TDD to this point, as the tutorial did not include testing. Now that I have completed the tutorial I will start my app from scratch while learning and using TDD with Angular.
