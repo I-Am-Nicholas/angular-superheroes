@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer  } from '@angular/platform-browser';
+import { Component, OnInit} from '@angular/core';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { SafeComponent } from './safe.component'
 
 @Component({
   selector: 'my-dashboard',
@@ -11,17 +11,16 @@ import { HeroService } from './hero.service';
 })
 
 export class DashboardComponent implements OnInit {
-
-heroes: Hero[] = [];
-//constructing a new instance of HeroService
-  constructor(private heroService: HeroService, private sanitizer: DomSanitizer) { }
-/*On initialization, take the instance created above and call
-its getHeroes method. On resolution of the promise, return
-elements 1 thru 5 of the array.*/
-  ngOnInit(): any {
+  /*This tells the template that it can manipulate 'heroes' and that it is an instance
+  of Hero, and that it will be an array.*/
+  heroes: Hero[] = [];
+  //constructing a new instance of HeroService
+  constructor(private heroService: HeroService) { }
+  /*On initialization, take the instance created above and call
+  its getHeroes method. On resolution of the promise, return
+  elements 1 thru 4 of the array.*/
+  ngOnInit(): void {
     this.heroService.getHeroes()
-    .then(heroes => this.heroes = heroes.slice(1, 5));
-    // return this.sanitizer.bypassSecurityTrustUrl('assets/shield.png');
+    .then(heroes => this.heroes = heroes.slice(0, 4));
   }
-
 }

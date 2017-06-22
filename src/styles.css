@@ -11,12 +11,13 @@ h2, h3 {
 body {
   margin: 2em;
 }
-body, input[text], button {
-  background-color: #f1f0ee;
+body, input[text] {
+  /*background-color: #97a8af;*/
+  background-image:url('./assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Cambria, Georgia;
 }
-
-
 
 /* everywhere else */
 * {

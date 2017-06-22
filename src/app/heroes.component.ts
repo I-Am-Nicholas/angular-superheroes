@@ -48,14 +48,12 @@ export class HeroesComponent implements OnInit{
     });*/
   }
 
-
   /*The onSelect method sets the selectedHero property to whatever the user selected.
   'hero1' is the property, the 'Hero' class is the type. So 'hero1' expects to get a name
   and an id. These are then transferred to selectedHero*/
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
-
   /*ngOnInit is a Lifecycle hook. Angular offers a handful of hooks (interfaces)
   which allow you to view a component at a certain stage in its existence. The names
   of these hooks are self-explanatory. ngOnDestroy, ngOnChange, etc.

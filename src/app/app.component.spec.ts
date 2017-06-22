@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing'; //Stack Overflow
 import { DebugElement }    from '@angular/core';
 import { By }              from '@angular/platform-browser';
 
+
+import { Subject } from 'rxjs/Subject';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -11,6 +13,8 @@ describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
     let dbug:      DebugElement; //access to the DOM
     let elem:      HTMLElement;
+    // let page: Page;
+
 
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -53,6 +57,11 @@ describe('AppComponent', () => {
   it('should render text of nav tag', async(() => {
     fixture.detectChanges();
     expect(elem.textContent).toContain('Heroes');
+  }));
+
+  it('should change bg color on hover', async(() => {
+    dbug.dispatchEvent(newEvent('hover'));
+    expect(dbug.nativeElement.backgroundColor).toEqual('#eee');
   }));
 
 });
