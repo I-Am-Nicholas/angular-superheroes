@@ -1,6 +1,9 @@
 import { Hero } from './hero';
 
-export const HEROES: Hero[] = [
+
+/*Each element in HEROES array must consist of the propeerties outlined
+below, properties of the Hero class.*/
+export const HEROES: Hero[] = [//
   {id: 1, name: 'Iron Man', logo: 'assets/faceplate.png' },
   {id: 2, name: 'Captain America', logo: 'assets/shield.png' },
   {id: 3, name: 'Hulk', logo: 'assets/gamma2.jpg' },

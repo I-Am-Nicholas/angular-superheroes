@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [ RouterTestingModule ],//Stack Overflow
-        declarations: [ AppComponent ] // always declare the test component
+        declarations: [ AppComponent ] // always declare the component under test here
       });
 
       fixture = TestBed.createComponent(AppComponent);
