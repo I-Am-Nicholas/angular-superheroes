@@ -1,3 +1,4 @@
+//Component, here, is known as a symbol.
 import { Component } from '@angular/core';
 
 @Component({

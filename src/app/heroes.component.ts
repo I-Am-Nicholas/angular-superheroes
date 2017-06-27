@@ -7,7 +7,6 @@ import { HeroService } from './hero.service';
 @Component({ //a Decorator, adding metadata. Decorators always come with ().
   /*According to selector, an instance of AppComponent will
   be placed wherever the 'my-app' tag is found. This is Bootstrapping.*/
-  selector: 'my-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
@@ -49,8 +48,8 @@ export class HeroesComponent implements OnInit{
   }
 
   /*The onSelect method sets the selectedHero property to whatever the user selected.
-  'hero1' is the property, the 'Hero' class is the type. So 'hero1' expects to get a name
-  and an id. These are then transferred to selectedHero*/
+  'hero' is the property, the 'Hero' class is the type. So 'hero' expects to get a name
+  and an id and a logo. These are then transferred to selectedHero*/
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
